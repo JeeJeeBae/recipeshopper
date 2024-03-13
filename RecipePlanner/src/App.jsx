@@ -1,10 +1,13 @@
 import React from "react";
+import Recipe from "./components/Recipe";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <div>
-      <h2>GA SEI</h2>
-    </div>
+    <>
+      {/* <NavBar></NavBar> */}
+      <Recipe></Recipe>
+    </>
   );
 }
 
