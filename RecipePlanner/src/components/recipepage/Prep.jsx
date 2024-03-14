@@ -1,32 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Prep = () => {
+  const [recipePrep, setRecipePrep] = useState("");
+
+  useEffect(() => {
+    const fetchRecipePrep = async () => {
+      try {
+        const res = await fetch(
+          "https://api.spoonacular.com/recipes/716429/information?apiKey=605e15e03efe45f6a04b91d3501a440b&includeNutrition=false"
+        );
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const data = await res.json();
+
+        setRecipePrep(data.summary);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchRecipePrep();
+  }, []);
+
   return (
     <>
       <div className="container">
         <div className="prep">
           <h5>Preparation:</h5>
-          <p>
-            Step 1 Preheat oven to 400°F. Toast caraway seeds in small nonstick
-            skillet over medium heat until seeds darken and begin to smoke,
-            stirring often, about 5 minutes. Add olive oil and garlic cloves to
-            caraway seeds in skillet. Cover; remove from heat. Let stand 1
-            minute. Pour caraway mixture into processor. Add chili paste, tomato
-            sauce, cumin, and chili powder and blend until garlic cloves are
-            pureed. Season harissa to taste with salt.
-          </p>
-          <p>
-            Step 2 Sprinkle beef all over with salt and pepper; place beef, fat
-            side down, on rack on rimmed baking sheet. Spread with half of
-            harissa. Turn beef over; spread remaining harissa over top and
-            sides. Roast beef until thermometer inserted into center registers
-            125°F to 130°F for medium-rare, about 35 minutes. Let rest 10
-            minutes. Slice and serve.
-          </p>
-          <p>
-            Step 3 *Available in the Asian foods section of most supermarkets
-            and at Asian markets.
-          </p>
+
+          {recipePrep}
         </div>
       </div>
     </>

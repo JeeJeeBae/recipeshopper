@@ -10,6 +10,7 @@ const Main = () => {
       <Header></Header>
       <Prep></Prep>
       <Ingredients></Ingredients>
+      <br />
       <Fixed></Fixed>
     </div>
   );
