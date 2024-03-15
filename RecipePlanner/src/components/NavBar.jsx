@@ -1,17 +1,28 @@
 import React from "react";
-// import styles from "./components/NavBar.module.css";
-// import { Link, NavLink } from "react-router-dom";
+import styles from "./NavBar.module.css";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <header className="navBar">
+    <header className={styles.navbar}>
       <nav>
         <ul>
           <li>
-            <NavLink>Main</NavLink>
+            {/* <Link to="/main">Main</Link> */}
+            <NavLink
+              className={(navData) => (navData.isActive ? styles.active : "")}
+              to="/SavedRecipes"
+            >
+              Saved Recipes
+            </NavLink>
           </li>
           <li>
-            <NavLink>Members</NavLink>
+            <NavLink
+              className={(navData) => (navData.isActive ? styles.active : "")}
+              to="/Recipe"
+            >
+              Recipe of the Day
+            </NavLink>
           </li>
         </ul>
       </nav>

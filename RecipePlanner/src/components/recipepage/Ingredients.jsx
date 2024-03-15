@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Servings from "./Calculator/Servings";
-import Cost from "./Calculator/Cost";
-import AddItems from "./Calculator/AddItems";
 
 const Ingredients = () => {
   const [ingredients, setIngredients] = useState([]);
@@ -10,7 +7,7 @@ const Ingredients = () => {
     const fetchIngredients = async () => {
       try {
         const response = await fetch(
-          "https://api.spoonacular.com/recipes/716429/information?apiKey=605e15e03efe45f6a04b91d3501a440b&includeNutrition=false"
+          "https://api.spoonacular.com/recipes/638308/information?apiKey=605e15e03efe45f6a04b91d3501a440b&includeNutrition=false"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch data");

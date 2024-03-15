@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from "react";
 
 const Prep = () => {
-  const [recipePrep, setRecipePrep] = useState("");
+  const [recipePrep, setRecipePrep] = useState(
+    "The preparation guide will appear here."
+  );
 
   useEffect(() => {
     const fetchRecipePrep = async () => {
       try {
         const res = await fetch(
-          "https://api.spoonacular.com/recipes/716429/information?apiKey=605e15e03efe45f6a04b91d3501a440b&includeNutrition=false"
+          "https://api.spoonacular.com/recipes/638308/information?apiKey=605e15e03efe45f6a04b91d3501a440b&includeNutrition=false"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch data");
         }
         const data = await res.json();
 
-        setRecipePrep(data.summary);
+        setRecipePrep(data.instructions);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

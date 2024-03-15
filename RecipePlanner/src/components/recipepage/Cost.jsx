@@ -11,7 +11,9 @@ const Cost = () => {
       <button className="groceryButton" type="submit">
         <img className="grocery" src="red.png"></img>
       </button>
-      <div className="cost">Estimated Cost: S$500</div>
+      <div className="cost">
+        Estimated Cost: <b>S$0</b>
+      </div>
     </div>
   );
 };

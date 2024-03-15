@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 
 const Header = () => {
-  const [recipeTitle, setRecipeTitle] = useState("");
-  const [recipeImage, setRecipeImage] = useState("");
+  const [recipeTitle, setRecipeTitle] = useState("The Recipe Title");
+  const [recipeImage, setRecipeImage] = useState("default.png");
   const [recipeTime, setRecipeTime] = useState(0);
 
   useEffect(() => {
     const fetchRecipeData = async () => {
       try {
         const res = await fetch(
-          "https://api.spoonacular.com/recipes/716429/information?apiKey=605e15e03efe45f6a04b91d3501a440b&includeNutrition=false"
+          "https://api.spoonacular.com/recipes/638308/information?apiKey=605e15e03efe45f6a04b91d3501a440b&includeNutrition=false"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch data");
@@ -23,10 +23,8 @@ const Header = () => {
         console.error("Error fetching data:", error);
       }
     };
-
-    // Call the function to fetch recipe data when the component mounts
     fetchRecipeData();
-  }, []); // Empty dependency array to ensure this effect runs only once when the component mounts
+  }, []);
 
   return (
     <>
@@ -35,11 +33,10 @@ const Header = () => {
           <div className="row">
             <img className="recipeImage" src={recipeImage} alt="Recipe"></img>
             <div className="recipeTitle">
-              {/* Display the dynamically fetched recipe title */}
               <h2>{recipeTitle}</h2>
               <div>Ready in {recipeTime} minutes.</div>
               <br />
-              <button className="startButton">Start Cooking</button>
+              <button className="startButton">Save this recipe</button>
             </div>
           </div>
         </div>
