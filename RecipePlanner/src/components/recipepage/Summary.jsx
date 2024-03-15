@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 
 const Summary = () => {
   const [recipeSum, setRecipeSum] = useState(
-    "The preparation guide will appear here."
+    "The summary of a recipe appear here."
   );
 
   useEffect(() => {
     const fetchRecipeSum = async () => {
       try {
         const res = await fetch(
-          "https://api.spoonacular.com/recipes/638308/information?apiKey=605e15e03efe45f6a04b91d3501a440b&includeNutrition=false"
+          "https://api.spoonacular.com/recipes/644148/information?apiKey=605e15e03efe45f6a04b91d3501a440b&includeNutrition=false"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch data");
@@ -34,6 +34,18 @@ const Summary = () => {
           {recipeSum}
         </div>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };

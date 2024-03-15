@@ -1,30 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-const Servings = ({ recipeId }) => {
+const Servings = ({ onServingSizeChange }) => {
   const [servingSize, setServingSize] = useState(0);
 
-  useEffect(() => {
-    const fetchServingSize = async () => {
-      try {
-        const response = await fetch(
-          "https://api.spoonacular.com/recipes/638308/information?apiKey=605e15e03efe45f6a04b91d3501a440b&includeNutrition=false"
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const data = await response.json();
-
-        setServingSize(data.servings);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchServingSize();
-  }, [recipeId]);
-
   const handleServingSizeChange = (event) => {
-    setServingSize(event.target.value);
+    const newSize = event.target.value;
+    setServingSize(newSize);
+    onServingSizeChange(newSize); // Notify parent component
   };
 
   return (

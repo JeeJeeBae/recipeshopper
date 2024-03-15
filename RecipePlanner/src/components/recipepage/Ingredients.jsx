@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-const Ingredients = () => {
+const Ingredients = ({ servingSize }) => {
   const [ingredients, setIngredients] = useState([]);
+  const [adjustedAmounts, setAdjustedAmounts] = useState([]);
 
   useEffect(() => {
     const fetchIngredients = async () => {
       try {
         const response = await fetch(
-          "https://api.spoonacular.com/recipes/638308/information?apiKey=605e15e03efe45f6a04b91d3501a440b&includeNutrition=false"
+          "https://api.spoonacular.com/recipes/644148/information?apiKey=605e15e03efe45f6a04b91d3501a440b&includeNutrition=false"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -22,6 +23,21 @@ const Ingredients = () => {
     fetchIngredients();
   }, []);
 
+  useEffect(() => {
+    // Update ingredient amounts when serving size changes
+    if (servingSize > 0) {
+      updateIngredientAmounts();
+    }
+  }, [servingSize]);
+
+  const updateIngredientAmounts = () => {
+    // Update ingredient amounts based on new serving size
+    const updatedAdjustedAmounts = ingredients.map((ingredient) =>
+      ((ingredient.amount / 4) * servingSize).toFixed(2)
+    );
+    setAdjustedAmounts(updatedAdjustedAmounts);
+  };
+
   return (
     <div className="ingredientContainer">
       <div className="ingredientsTitle">Ingredients</div>
@@ -34,28 +50,20 @@ const Ingredients = () => {
           />
           <div className="ingredientInfo">
             <div className="ingredientAmount">
-              {ingredient.amount} {ingredient.unit}
+              {adjustedAmounts.length > 0 &&
+              adjustedAmounts[index] !== undefined
+                ? adjustedAmounts[index]
+                : ((ingredient.amount / 4) * servingSize).toFixed(2)}{" "}
+              {ingredient.unit}
             </div>
             <div className="ingredientName">{ingredient.originalName}</div>
           </div>
           <div className="checkbox">
             <input type="checkbox" />
-            <span class="checkmark"></span>
+            <span className="checkmark"></span>
           </div>
         </div>
       ))}
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </div>
   );
 };

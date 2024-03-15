@@ -9,7 +9,7 @@ const Header = () => {
     const fetchRecipeData = async () => {
       try {
         const res = await fetch(
-          "https://api.spoonacular.com/recipes/638308/information?apiKey=605e15e03efe45f6a04b91d3501a440b&includeNutrition=false"
+          "https://api.spoonacular.com/recipes/644148/information?apiKey=605e15e03efe45f6a04b91d3501a440b&includeNutrition=false"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch data");
