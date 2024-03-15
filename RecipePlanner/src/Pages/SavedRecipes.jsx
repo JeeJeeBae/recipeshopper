@@ -1,13 +1,17 @@
 import React from "react";
-import SavedRecipeCard from "./components/SavedRecipeCard";
 
-const Saved = () => {
+const SavedRecipes = ({ savedRecipe }) => {
   return (
     <div>
-      <div className="row"></div>
-      <SavedRecipeCard />
+      {savedRecipe && (
+        <div>
+          <h3>{savedRecipe.title}</h3>
+          <img src={savedRecipe.image} alt={savedRecipe.title} />
+          <p>Ready in {savedRecipe.time} minutes.</p>
+        </div>
+      )}
     </div>
   );
 };
 
-export default Saved;
+export default SavedRecipes;

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./NavBar.module.css";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -8,10 +8,9 @@ const NavBar = () => {
       <nav>
         <ul>
           <li>
-            {/* <Link to="/main">Main</Link> */}
             <NavLink
               className={(navData) => (navData.isActive ? styles.active : "")}
-              to="/SavedRecipes"
+              to="/saved"
             >
               Saved Recipes
             </NavLink>

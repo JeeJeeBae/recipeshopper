@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cost = () => {
+const Cost = ({ totalCost }) => {
   return (
     <div className="costContainer">
       <div className="">Step 2: Choose your grocery:</div>
@@ -12,7 +12,7 @@ const Cost = () => {
         <img className="grocery" src="red.png"></img>
       </button>
       <div className="cost">
-        Estimated Cost: <b>S$0</b>
+        Estimated Cost: <b>S${totalCost}</b>
       </div>
     </div>
   );

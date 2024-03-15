@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-const Ingredients = ({ servingSize }) => {
+const Ingredients = ({
+  servingSize,
+  onCheckboxChange,
+  onSelectedItemsChange,
+}) => {
   const [ingredients, setIngredients] = useState([]);
   const [adjustedAmounts, setAdjustedAmounts] = useState([]);
+  const [checkedItems, setCheckedItems] = useState([]);
 
   useEffect(() => {
     const fetchIngredients = async () => {
@@ -38,6 +43,20 @@ const Ingredients = ({ servingSize }) => {
     setAdjustedAmounts(updatedAdjustedAmounts);
   };
 
+  const handleCheckboxChange = (index) => {
+    const newCheckedItems = [...checkedItems];
+    newCheckedItems[index] = !checkedItems[index];
+    setCheckedItems(newCheckedItems);
+    const totalCheckedItems = newCheckedItems.filter(Boolean).length;
+    // Calculate total cost based on $10 per checked item
+    const totalCost = totalCheckedItems * 10;
+    onCheckboxChange(totalCost);
+
+    // Pass the number of selected items to the parent component
+    const selectedItemsCount = newCheckedItems.filter(Boolean).length;
+    onSelectedItemsChange(selectedItemsCount);
+  };
+
   return (
     <div className="ingredientContainer">
       <div className="ingredientsTitle">Ingredients</div>
@@ -59,7 +78,10 @@ const Ingredients = ({ servingSize }) => {
             <div className="ingredientName">{ingredient.originalName}</div>
           </div>
           <div className="checkbox">
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onChange={() => handleCheckboxChange(index)}
+            />
             <span className="checkmark"></span>
           </div>
         </div>

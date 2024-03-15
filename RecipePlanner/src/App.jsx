@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./components/NavBar";
-import { Navigate, Route, Routes } from "react-router-dom";
-const RecipeOfTheDay = React.lazy(() => import("./Pages/Recipe"));
-const SavedRecipes = React.lazy(() => import("./Pages/SavedRecipes"));
+import { Route, Routes } from "react-router-dom";
+import Recipe from "./Pages/Recipe";
+import SavedRecipes from "./Pages/SavedRecipes";
 
 function App() {
+  const [savedRecipe, setSavedRecipe] = useState(null);
+
+  const handleSaveRecipe = (recipe) => {
+    setSavedRecipe(recipe);
+  };
+
   return (
     <>
-      <NavBar></NavBar>
+      <NavBar />
       <Routes>
-        <Route path="saved" element={<SavedRecipes />} />
-        <Route path="recipe" element={<RecipeOfTheDay />} />
+        <Route
+          path="saved"
+          element={<SavedRecipes savedRecipe={savedRecipe} />}
+        />
+        <Route
+          path="recipe"
+          element={<Recipe onSaveRecipe={handleSaveRecipe} />}
+        />
       </Routes>
     </>
   );

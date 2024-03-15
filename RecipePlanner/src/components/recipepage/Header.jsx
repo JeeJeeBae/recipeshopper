@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Header = () => {
+const Header = ({ onSaveRecipe }) => {
   const [recipeTitle, setRecipeTitle] = useState("The Recipe Title");
   const [recipeImage, setRecipeImage] = useState("default.png");
   const [recipeTime, setRecipeTime] = useState(0);
@@ -26,6 +26,14 @@ const Header = () => {
     fetchRecipeData();
   }, []);
 
+  const handleSaveRecipe = () => {
+    onSaveRecipe({
+      title: recipeTitle,
+      image: recipeImage,
+      time: recipeTime,
+    });
+  };
+
   return (
     <>
       <div className="container">
@@ -36,7 +44,9 @@ const Header = () => {
               <h2>{recipeTitle}</h2>
               <div>Ready in {recipeTime} minutes.</div>
               <br />
-              <button className="startButton">Save this recipe</button>
+              <button className="startButton" onClick={handleSaveRecipe}>
+                Save this recipe
+              </button>
             </div>
           </div>
         </div>
