@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import NavBar from "./components/NavBar";
 import { Route, Routes } from "react-router-dom";
 import Recipe from "./Pages/Recipe";
-import SavedRecipes from "./SavedRecipes";
+import SavedRecipes from "./Pages/SavedRecipes";
 
 function App() {
   const [savedRecipe, setSavedRecipe] = useState(null);

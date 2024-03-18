@@ -3,7 +3,7 @@
   background-color: #01c187;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* align items vertically */
+  align-items: center;
 }
 .navbar nav {
   height: 100%;

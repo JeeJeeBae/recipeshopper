@@ -1,11 +1,11 @@
 import React from "react";
-import { saveRecipeToAirtable } from "./Airtable";
-import FetchAirtable from "./FetchAirtable";
+import { saveRecipeToAirtable } from "../Airtable";
+import FetchAirtable from "../FetchAirtable";
 
 const SavedRecipes = ({ savedRecipe }) => {
   const saveToAirtable = async () => {
     try {
-      await saveRecipeToAirtable(savedRecipe); // Call the function to save recipe
+      await saveRecipeToAirtable(savedRecipe);
       alert("Recipe saved successfully!");
     } catch (error) {
       console.error("Error saving:", error);
@@ -29,7 +29,7 @@ const SavedRecipes = ({ savedRecipe }) => {
                 Ready in {savedRecipe.time} minutes.
               </div>
               <button className="startButton" onClick={saveToAirtable}>
-                Save recipe?
+                Save recipe
               </button>
             </div>
           </div>
