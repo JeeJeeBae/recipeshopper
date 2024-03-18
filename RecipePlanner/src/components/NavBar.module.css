@@ -2,8 +2,8 @@
   height: 5rem;
   background-color: #01c187;
   display: flex;
-  justify-content: space-between; /* This will push the form to the right */
-  align-items: center; /* Align items vertically */
+  justify-content: space-between;
+  align-items: center; /* align items vertically */
 }
 .navbar nav {
   height: 100%;

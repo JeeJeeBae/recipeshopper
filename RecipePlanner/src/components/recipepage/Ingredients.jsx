@@ -36,7 +36,7 @@ const Ingredients = ({
   }, [servingSize]);
 
   const updateIngredientAmounts = () => {
-    // Update ingredient amounts based on new serving size
+    // update ingredient amounts based on new serving size
     const updatedAdjustedAmounts = ingredients.map((ingredient) =>
       ((ingredient.amount / 4) * servingSize).toFixed(2)
     );
@@ -48,11 +48,11 @@ const Ingredients = ({
     newCheckedItems[index] = !checkedItems[index];
     setCheckedItems(newCheckedItems);
     const totalCheckedItems = newCheckedItems.filter(Boolean).length;
-    // Calculate total cost based on $10 per checked item
+    // calculate total cost based on $10 per checked item
     const totalCost = totalCheckedItems * 10;
     onCheckboxChange(totalCost);
 
-    // Pass the number of selected items to the parent component
+    // pass the number of selected items to the parent component
     const selectedItemsCount = newCheckedItems.filter(Boolean).length;
     onSelectedItemsChange(selectedItemsCount);
   };

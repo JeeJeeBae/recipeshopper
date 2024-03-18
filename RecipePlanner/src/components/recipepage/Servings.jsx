@@ -6,7 +6,7 @@ const Servings = ({ onServingSizeChange }) => {
   const handleServingSizeChange = (event) => {
     const newSize = event.target.value;
     setServingSize(newSize);
-    onServingSizeChange(newSize); // Notify parent component
+    onServingSizeChange(newSize); // notify parent component
   };
 
   return (

@@ -28,7 +28,7 @@ const Recipe = ({ onSaveRecipe }) => {
 
   const handleSaveRecipe = (recipe) => {
     onSaveRecipe(recipe);
-    navigate("/saved"); // Navigate to the saved recipes page after saving the recipe
+    navigate("/saved"); // go to the saved recipes page after saving the recipe
   };
 
   return (
