@@ -14,19 +14,29 @@ const SavedRecipes = ({ savedRecipe }) => {
   };
 
   return (
-    <div className="savedTitle">
-      <div className="container">
+    <>
+      <div className="savedRecipesContainer">
         {savedRecipe && (
-          <div>
-            <h3>{savedRecipe.title}</h3>
-            <img src={savedRecipe.image} alt={savedRecipe.title} />
-            <p>Ready in {savedRecipe.time} minutes.</p>
-            <button onClick={saveToAirtable}>Save recipe?</button>
+          <div className="saveCard">
+            <img
+              className="recImage"
+              src={savedRecipe.image}
+              alt={savedRecipe.title}
+            />
+            <div className="recContent">
+              <div className="recHeader">{savedRecipe.title}</div>
+              <div className="recTime">
+                Ready in {savedRecipe.time} minutes.
+              </div>
+              <button className="startButton" onClick={saveToAirtable}>
+                Save recipe?
+              </button>
+            </div>
           </div>
         )}
       </div>
-      <FetchAirtable></FetchAirtable>
-    </div>
+      <FetchAirtable />
+    </>
   );
 };
 

@@ -16,24 +16,28 @@ const FetchAirtable = () => {
 
     fetchData();
   }, []);
-  //console.log("record.id;", records[0].id);
 
   return (
-    <div>
-      <div className="">Recommended for you:</div>
-      <ul>
+    <>
+      <div className="recTitle">Recommended for you:</div>
+      <div className="recCardsContainer">
         {records.map((record) => (
-          <li key={record.id}>
-            <div>
-              <img src={record.fields.image[0].url} />
-              <h5>{record.fields.image.url}</h5>
-              <h5>{record.fields.title}</h5>
+          <div className="recCard" key={record.id}>
+            <img
+              className="recImage"
+              src={record.fields.image[0].url}
+              alt={record.fields.title}
+            />
+
+            <div className="recHeader">{record.fields.title}</div>
+            <br />
+            <dic className="recTime">
               <p>{record.fields.time}</p>
-            </div>
-          </li>
+            </dic>
+          </div>
         ))}
-      </ul>
-    </div>
+      </div>
+    </>
   );
 };
 
