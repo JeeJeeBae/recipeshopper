@@ -29,7 +29,7 @@ const Ingredients = ({
   }, []);
 
   useEffect(() => {
-    // Update ingredient amounts when serving size changes
+    // update ingredient amounts when serving size changes
     if (servingSize > 0) {
       updateIngredientAmounts();
     }

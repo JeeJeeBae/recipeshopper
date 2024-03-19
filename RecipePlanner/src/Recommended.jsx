@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { airtableBase } from "./Airtable.jsx";
 
-const FetchAirtable = () => {
+const Recommended = () => {
   const [records, setRecords] = useState([]);
 
   useEffect(() => {
@@ -41,4 +41,4 @@ const FetchAirtable = () => {
   );
 };
 
-export default FetchAirtable;
+export default Recommended;

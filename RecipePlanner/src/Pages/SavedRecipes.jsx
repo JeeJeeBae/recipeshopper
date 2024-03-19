@@ -1,6 +1,6 @@
 import React from "react";
 import { saveRecipeToAirtable } from "../Airtable";
-import FetchAirtable from "../FetchAirtable";
+import Recommended from "../Recommended";
 
 const SavedRecipes = ({ savedRecipe }) => {
   const saveToAirtable = async () => {
@@ -35,7 +35,7 @@ const SavedRecipes = ({ savedRecipe }) => {
           </div>
         )}
       </div>
-      <FetchAirtable />
+      <Recommended />
     </>
   );
 };
