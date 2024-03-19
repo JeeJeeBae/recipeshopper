@@ -4,14 +4,16 @@ Recipe Shopper is a comprehensive online browser application designed to provide
 # Screenshots:
 
 Starts with 0 serving size as the default, ingredients' amount also set to 0:
-<img src="https://imgur.com/MirT0re">
+
 ![Imgur](https://i.imgur.com/MirT0re.png)
 
 When serving size is increased to whatever amount, the ingredients' amounts also increase accordingly. The total cost's changes are reflected based on the items selected using the checkmark:
-<img src="https://imgur.com/NeMJbuL">
+
+![Imgur](https://imgur.com/NeMJbuL)
 
 Users can save a particular recipe to their list, and get recommended list of recipes:
-<img src="https://imgur.com/JQ16kaM">
+
+![Imgur](https://imgur.com/JQ16kaM)
 
 # Technologies Used
 
