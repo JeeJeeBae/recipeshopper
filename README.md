@@ -9,11 +9,11 @@ Starts with 0 serving size as the default, ingredients' amount also set to 0:
 
 When serving size is increased to whatever amount, the ingredients' amounts also increase accordingly. The total cost's changes are reflected based on the items selected using the checkmark:
 
-![Imgur](https://imgur.com/NeMJbuL)
+![Imgur](https://i.imgur.com/NeMJbuL)
 
 Users can save a particular recipe to their list, and get recommended list of recipes:
 
-![Imgur](https://imgur.com/JQ16kaM)
+![Imgur](https://i.imgur.com/JQ16kaM)
 
 # Technologies Used
 
