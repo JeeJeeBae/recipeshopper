@@ -23,7 +23,7 @@ Users can save a particular recipe to their list, and get recommended list of re
 
 # Getting Started
 
-[Click to Play Connect Four!](your deployment url here)
+[Click to Play Connect Four!](https://jeejeebae.github.io/recipeshopper/)
 
 # Next Steps
 
